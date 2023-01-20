@@ -64,4 +64,6 @@ pl = test_client['to_do_list']['tasks'].insert_many(test_list)
 print(pl.inserted_ids)
 
 #  print list of dicts in db
-# list(test_db.collection.find({}))
+cursor = test_col.find({})
+for document in cursor:
+    print(document)
