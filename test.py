@@ -13,3 +13,7 @@ def check_for_db(test_client, db_name):
 
 
 check_for_db(test_client, db_name)  # check if database exists or not
+
+# make collection in db
+col_name = 'tasks'
+test_col = test_db[col_name]
