@@ -17,3 +17,14 @@ check_for_db(test_client, db_name)  # check if database exists or not
 # make collection in db
 col_name = 'tasks'
 test_col = test_db[col_name]
+
+
+def check_for_col(test_db, col_name):
+    collist = test_db.list_collection_names()
+    if col_name in collist:
+        print(col_name + ' <-- collection exists')
+    else:
+        print(col_name + ' <-- collection does NOT exists')
+
+
+check_for_col(test_db, col_name)
