@@ -1,4 +1,7 @@
 import pymongo
+from datetime import datetime
+
+# name database and set mongo client
 db_name = 'to_do_list'
 test_client = pymongo.MongoClient('mongodb://localhost:27017')
 test_db = test_client[db_name]
@@ -28,3 +31,11 @@ def check_for_col(test_db, col_name):
 
 
 check_for_col(test_db, col_name)
+
+# create a dictionary to be added to the first collection
+now = datetime.now()
+test_dict = {"title": "Work on practice project",
+             "completed": False, "created_at": now}
+pl = test_col.instert_one(test_dict)
+
+# print(pl.inserted_id)
