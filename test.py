@@ -22,20 +22,23 @@ db = client['test_db']
 
 coll = db['test_collection']
 
-test_doc = {"text": "Test body text", "created_at": datetime.now()}
+test_doc = {"text": "Test body text NEW DOC",
+            "created_at": datetime.now(), "updated_at": datetime.now()}
+test_doc2 = {"text": "Test body text NEW DOC number 2",
+             "created_at": datetime.now(), "updated_at": datetime.now()}
 # coll.insert_one(test_doc)
+# coll.insert_many([test_doc, test_doc2])
 
 
 # updating a doc in test collection
 update_content = {"text": "This text has been updated",
                   "updated_at": datetime.now()}
-updated_doc_id = {"_id": ObjectId("63cb084635a158c67e0c42bd")}
+updated_doc_id = {"_id": ObjectId("63cef26a8c9cd7f0d1168802")}
 new_values = {"text": "This text has been updated",
               "updated_at": datetime.now()}
 
 coll.update_one(updated_doc_id, {"$set": new_values})
 
 
-print(coll.find_one({"_id": ObjectId("63cb084635a158c67e0c42bd")}))
-# for doc in coll.find():
-#     print(doc)
+for doc in coll.find():
+    print(doc)
