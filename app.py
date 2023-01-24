@@ -35,6 +35,12 @@ def result():
         result = request.form
         return render_template("result.html", result=result)
 
+
+@app.route('/getcookie')
+def getcookie():
+    name = request.cookies.get('userID')
+    return '<h1>welcome ' + name + '</h1>'
+
 # Sample to show connectivity between route, html template, and static file (in this case JS file with a function)
 
 
