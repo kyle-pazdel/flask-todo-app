@@ -10,6 +10,17 @@ app = Flask(__name__)
 def cookie_form():
     return render_template('cookie-form.html')
 
+
+@app.route('/setcookie', methods=['POST', 'GET'])
+def setcookie():
+    if request.method == 'POST':
+        user = request.form['name']
+
+        resp = make_response(render_template('readcookie.html'))
+        resp.set_cookie('userID', user)
+
+        return resp
+
 # Smaple to demonstrate data submission via POST from one template to another
 
 
