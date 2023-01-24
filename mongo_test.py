@@ -1,6 +1,7 @@
 import pymongo
 from datetime import datetime
 
+
 # name database and set mongo client
 db_name = 'to_do_list'
 test_client = pymongo.MongoClient('mongodb://localhost:27017')
