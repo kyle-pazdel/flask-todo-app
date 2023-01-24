@@ -6,6 +6,13 @@ from flask import Flask, redirect, url_for, request
 app = Flask(__name__)
 
 
+@app.route('/cookie-form')
+def cookie_form():
+    return render_template('cookie-form.html')
+
+# Smaple to demonstrate data submission via POST from one template to another
+
+
 @app.route('/student')
 def student():
     return render_template('student.html')
