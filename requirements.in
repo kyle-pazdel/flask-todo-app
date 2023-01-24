@@ -1,0 +1,4 @@
+ # requirements.in
+ requests
+ numpy
+ pandas==1.1.3
