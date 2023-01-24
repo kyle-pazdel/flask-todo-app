@@ -17,18 +17,21 @@ def index():
 def hello_world():
     return "hello world"
 
+
 # Sample route with param
-
-
-# posts = [{"id": 1, "1": "Post 1", "body": "The body text of Post 1"},
-#          {"id": 2, "2": "Post 2", "body": "The body text of Post 2"},
-#          {"id": 3, "3": "Post 3", "body": "The body text of Post 3"}]
 post = {"id": 1, "1": "Post 1", "body": "The body text of Post 1"}
 
 
 @app.route('/posts/<id>')
-def show_post(id):
+def show_post(id=0):
     return f"Title: {post[str(id)]}"
+
+# Sample route with multiple params
+
+
+@app.route('/create/<first_name>/<last_name>')
+def create(first_name=None, last_name=None):
+    return 'Hello ' + first_name + ', ' + last_name
 
 
 app.run(host='0.0.0.0', port=81)
