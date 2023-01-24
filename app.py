@@ -15,7 +15,7 @@ def dashboard(name):
 def login():
     if request.method == 'POST':
         user = request.form['name']
-        return redirect(url_for('dashboard', name=user))
+        return redirect(url_for('dashboard', _external=True, name=user))
     else:
         user = request.args.get('name')
         return render_template('login.html')
