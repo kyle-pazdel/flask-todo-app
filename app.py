@@ -5,7 +5,11 @@ from flask import request
 from flask import Flask, redirect, url_for, request
 app = Flask(__name__)
 
+@app.route("/say-hello")
+def say_hello():
+    return render_template("say-hello.html")
 
+# Sample redirect from login to dashboard
 @app.route('/dashboard/<name>')
 def dashboard(name):
     return 'welcome %s' % name
