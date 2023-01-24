@@ -5,11 +5,28 @@ from flask import request
 from flask import Flask, redirect, url_for, request
 app = Flask(__name__)
 
+
+@app.route('/student')
+def student():
+    return render_template('student.html')
+
+
+@app.route('/result', methods=['POST', 'GET'])
+def result():
+    if request.method == 'POST':
+        result = request.form
+        return render_template("result.html", result=result)
+
+# Sample to show connectivity between route, html template, and static file (in this case JS file with a function)
+
+
 @app.route("/say-hello")
 def say_hello():
     return render_template("say-hello.html")
 
 # Sample redirect from login to dashboard
+
+
 @app.route('/dashboard/<name>')
 def dashboard(name):
     return 'welcome %s' % name
