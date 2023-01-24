@@ -7,8 +7,9 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def index():
-    name = 'Kyle'
-    return render_template('index.html', title='Welcome', username=name)
+    title = 'Sample title'
+    users = ['Kyle', 'Nelson', 'Greg']
+    return render_template('index.html', title=title, members=users)
 
 
 app.run(host='0.0.0.0', port=81)
