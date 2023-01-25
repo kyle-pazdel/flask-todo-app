@@ -2,13 +2,15 @@ from flask import Flask
 from flask import render_template
 from flask import request
 
-from flask import Flask, redirect, url_for, request
+from flask import Flask, redirect, url_for, request, make_response
 app = Flask(__name__)
 
+# Sample to demonstrate cookie storage and passing
 
-@app.route('/cookie-form')
+
+@app.route('/cookieform')
 def cookie_form():
-    return render_template('cookie-form.html')
+    return render_template('cookieform.html')
 
 
 @app.route('/setcookie', methods=['POST', 'GET'])
@@ -20,6 +22,12 @@ def setcookie():
         resp.set_cookie('userID', user)
 
         return resp
+
+
+@app.route('/getcookie')
+def getcookie():
+    name = request.cookies.get('userID')
+    return '<h1>welcome ' + name + '</h1>'
 
 # Smaple to demonstrate data submission via POST from one template to another
 
@@ -35,11 +43,6 @@ def result():
         result = request.form
         return render_template("result.html", result=result)
 
-
-@app.route('/getcookie')
-def getcookie():
-    name = request.cookies.get('userID')
-    return '<h1>welcome ' + name + '</h1>'
 
 # Sample to show connectivity between route, html template, and static file (in this case JS file with a function)
 
