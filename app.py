@@ -27,7 +27,7 @@ def setcookie():
 @app.route('/getcookie')
 def getcookie():
     name = request.cookies.get('userID')
-    return '<h1>welcome ' + name + '</h1>'
+    return '<h1>Cookie data: ' + name + '</h1>'
 
 # Smaple to demonstrate data submission via POST from one template to another
 
